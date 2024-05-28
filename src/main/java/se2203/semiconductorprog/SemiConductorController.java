@@ -73,8 +73,9 @@ public class SemiConductorController {
         double pm = Double.parseDouble(pmInput.getText());
         double p = Double.parseDouble(pInput.getText());
         int radiusLengths = Integer.parseInt(radiusLengthsInput.getText());
+        //the above code will retrieve values from the gui, and store them as local variables
 
-        Element element = new Element(name,atomicNumber,A, Z,pm,p);
+        Element element = new Element(name,atomicNumber,A, Z,pm,p);//creates a new Element object with the inputted values
 
         nDisplay.setText(String.valueOf(calculator.calculateElectronDensity(element)));
         element.setN(calculator.calculateElectronDensity(element));
@@ -88,8 +89,6 @@ public class SemiConductorController {
         pDisplay.setText(String.valueOf(calculator.calculateDrudeResistivity(element)));
         element.setpDrude(calculator.calculateDrudeResistivity(element));
 
-        System.out.println("Free Electron Model");
-
         kfDisplay.setText(String.valueOf(calculator.calculateKF(element)));
         element.setKf(calculator.calculateKF(element));
 
@@ -102,14 +101,7 @@ public class SemiConductorController {
         tfDisplay.setText(String.valueOf(calculator.calculatetf(element)));
         element.setTf(calculator.calculatetf(element));
 
-        System.out.printf("\n\nExamining Semi Conductors\nPlease Enter Semi Conductor info:\n");
-
-
-
-
-
-
-
+        //the above lines will use the calculator class ot find teh necessary values, and will display these values to the appropriate textfields
     }
     @FXML
     public void generateValues2()
@@ -121,8 +113,9 @@ public class SemiConductorController {
         double b = Double.parseDouble(binput.getText());
         double na = Double.parseDouble(naInput.getText());
         double nd = Double.parseDouble(ndInput.getText());
+        //the above code will retrieve values from the gui, and store them as local variables
 
-        SemiConductor semiConductor = new SemiConductor(formula,eg,un,up,b);
+        SemiConductor semiConductor = new SemiConductor(formula,eg,un,up,b);//this line will create a SemiConductor object with the provided values
 
         niDisplay.setText(String.valueOf(calculator.calculateni(semiConductor)));
         semiConductor.setNi(calculator.calculateni(semiConductor));
@@ -132,6 +125,7 @@ public class SemiConductorController {
 
         v0Display.setText(String.valueOf(calculator.calculateV0(semiConductor,na,nd)));
         semiConductor.setV0(calculator.calculateV0(semiConductor,na,nd));
+        //the above lines will use the calculator class ot find teh necessary values, and will display these values to the appropriate textfields
     }
 
 }
